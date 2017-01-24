@@ -27,7 +27,7 @@ dotnet run
 
 The image below shows the application get the Citizen Service site service list on Ubuntu 16.04:
 
-[![](https://github.com/readpuppy/CitizenService-Open311-Console/blob/master/imgs/1.png)]
+![](https://github.com/readpuppy/CitizenService-Open311-Console/blob/master/imgs/1.png)
 
 ###Windows
 
@@ -45,7 +45,7 @@ dotnet run
 
 The image below shows the application query for one service type details:
 
-[![](https://github.com/readpuppy/CitizenService-Open311-Console/blob/master/imgs/2.png)]
+![](https://github.com/readpuppy/CitizenService-Open311-Console/blob/master/imgs/2.png)
 
 ###Mac OS
 
@@ -63,6 +63,6 @@ dotnet run
 ```
 The image below shows one new service request is created with API:
 
-[![](https://github.com/readpuppy/CitizenService-Open311-Console/blob/master/imgs/3.png)]
+![](https://github.com/readpuppy/CitizenService-Open311-Console/blob/master/imgs/3.png)
 
 
