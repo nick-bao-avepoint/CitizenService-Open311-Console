@@ -4,8 +4,24 @@ The sample code shows hot to use the AvePoint Citizen Services API to query and 
 
 The code is writtent in C# and run in .Net core framework. To build the code you need have the .Net core SDK installed. The infomation to install .Net core SDK can be found at Microsoft [.Net core download](https://www.microsoft.com/net/download/core) page.  
 
+##Getting Start
 
+First you need modify the configuration for the AvePoint Citizen Services tenant you are running test on. In the code modify the following lines below:
 
+``` C#
+            string baseAddress = "https://api.citizenservices.org";
+            string jurisdictionId = "your_tenant";   
+            string format = "xml";
+            string id = "ave_buildingrequest";   //  The service type you will create new request
+            string accessToken = "your_api_key_created_by_tenant_admin";
+```            
+
+The code will show how to do the operations:
+
+* List all the available Service Request Types by using query service list API
+* List detail information of one service request type
+* List all existing Service Requests for the speficied service request type and time range
+* Create a new Service Request using the creating request API
 
 
 ###Linux OS
