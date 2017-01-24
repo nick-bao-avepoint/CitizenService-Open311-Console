@@ -19,10 +19,66 @@ First you need modify the configuration for the AvePoint Citizen Services tenant
 The code will show how to do the operations:
 
 * List all the available Service Request Types by using query service list API
+
+``` C#
+        public async Task<string> GetServicesAsync()
+        {
+            var response = await client.GetAsync($"/{jurisdictionId}/api/beta/services.{format}", token);
+
+            if ("xml".Equals(format, StringComparison.OrdinalIgnoreCase))
+            {
+                return XDocument.Parse(await response.Content.ReadAsStringAsync()).ToString();
+            }
+            return JToken.Parse(await response.Content.ReadAsStringAsync()).ToString(Newtonsoft.Json.Formatting.Indented);
+        }
+
+```
+
 * List detail information of one service request type
+
+``` C#
+        public async Task<string> GetServiceByIdAsync(string id)
+        {
+            var response = await client.GetAsync($"/{jurisdictionId}/api/beta/services/{id}.{format}", token);
+
+            if ("xml".Equals(format, StringComparison.OrdinalIgnoreCase))
+            {
+                return XDocument.Parse(await response.Content.ReadAsStringAsync()).ToString();
+            }
+            return JToken.Parse(await response.Content.ReadAsStringAsync()).ToString(Newtonsoft.Json.Formatting.Indented);
+        }
+```
+
 * List all existing Service Requests for the speficied service request type and time range
+
+``` C#
+        public async Task<string> GetServiceRequestsAsync(string queryString)
+        {
+            var response = await client.GetAsync($"/{jurisdictionId}/api/beta/requests.{format}?{queryString}", token);
+
+            if ("xml".Equals(format, StringComparison.OrdinalIgnoreCase))
+            {
+                return XDocument.Parse(await response.Content.ReadAsStringAsync()).ToString();
+            }
+            return JToken.Parse(await response.Content.ReadAsStringAsync()).ToString(Newtonsoft.Json.Formatting.Indented);
+        }
+```
+
 * Create a new Service Request using the creating request API
 
+
+``` C#
+        public async Task<string> PostServiceRequest(IEnumerable<KeyValuePair<string, string>> request)
+        {
+            var response = await client.PostAsync($"/{jurisdictionId}/api/beta/requests.{format}", new FormUrlEncodedContent(request));
+
+            if ("xml".Equals(format, StringComparison.OrdinalIgnoreCase))
+            {
+                return XDocument.Parse(await response.Content.ReadAsStringAsync()).ToString();
+            }
+            return JToken.Parse(await response.Content.ReadAsStringAsync()).ToString(Newtonsoft.Json.Formatting.Indented);
+        }
+```
 
 ###Linux OS
 
